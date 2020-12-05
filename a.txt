@@ -1,0 +1,16 @@
+ elif 'email to  dady' in query:
+            try:
+                speak("what should i say")
+                content=takeCommand()
+                to="adityasharma9821@gmail.com"
+                sendEmail(to,content)
+                speak("email has been sent")
+            except Exception as e:
+                print(e)
+                speak("sorry sir i m not able to send email right this moment")
+def sendEmail(to,content):
+    server=smtplib.SMTP("smtp.gmail.com",587)
+    server.ehlo()
+    server.starttls()
+    server.login("adityasharma902775@gmail.com",to,content)
+    server.close()                
